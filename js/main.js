@@ -65,9 +65,7 @@ let addResuls = function() {
   elAddedContact.append(elNewLi)
     console.log(contacts[i]);
 
-    elInputName.value = null
-    elInputSurname.value =null
-    elInputTel.value = null
+  
   
   }
 }
@@ -75,17 +73,14 @@ let addResuls = function() {
 // Formni hodisasini tinglash
   elForm.addEventListener("submit", function(evt) {
   evt.preventDefault();
-  
-  // if (surname.length == "" || surname.value.length < 3 || surname.value.length > 15) {
-  //   elInputSurname.style.borderColor = "red";
-  //   return
-  // }
-  elAddedContact.innerHTML = ""
-  
   addValueAddarray();
-  addResuls();
 
+  elAddedContact.innerHTML = ""
+  addResuls();
   
+    elInputName.value = null
+    elInputSurname.value =null
+    elInputTel.value = null
 })
 
 
