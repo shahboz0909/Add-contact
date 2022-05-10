@@ -34,7 +34,7 @@ let contacts = [];
 }
 
 let addResuls = function() {
-  for (let i = 0; i < contacts.length; i++){
+    for (let i = 0; i < contacts.length; i++){
     
     let elNewLi = document.createElement("li");
 
@@ -62,11 +62,9 @@ let addResuls = function() {
     <a class="" href="tel:${contacts[i].telephone}">${contacts[i].telephone}</a>
   </p>`
 
-  elAddedContact.append(elNewLi)
+    elAddedContact.append(elNewLi)
     console.log(contacts[i]);
 
-  
-  
   }
 }
 
@@ -74,6 +72,7 @@ let addResuls = function() {
   elForm.addEventListener("submit", function(evt) {
   evt.preventDefault();
   addValueAddarray();
+
 
   elAddedContact.innerHTML = ""
   addResuls();
