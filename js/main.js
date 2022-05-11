@@ -1,19 +1,17 @@
 // FORM ELEMENTLARINI CHAQIRISH
-
-let  elForm = document.querySelector(".js-form");
-let elInputName = elForm.querySelector(".js-name-input");
-let elInputSurname = elForm.querySelector(".js-surname-input");
-let elInputRelation = elForm.querySelector(".form-select");
-let elInputTel = elForm.querySelector(".js-number-input");
+let  elForm = $(".js-form");
+let elInputName = $(".js-name-input", elForm);
+let elInputSurname = $(".js-surname-input", elForm);
+let elInputRelation = $(".form-select", elForm);
+let elInputTel = $(".js-number-input", elForm);
 
 // Natijalar bo'limi
-
 let elAddedContact = document.querySelector(".js-added-contact");
 
 
 // Bo'sh array
 let contacts = [];
-
+borderColors();
 
 // Formda arrayga objectni push qilish
   let addValueAddarray = function() {
@@ -36,11 +34,7 @@ let contacts = [];
     return;
   }
 
-  elInputName.style.borderColor = "black";
-  elInputTel.style.borderColor = "black";
-  elInputSurname.style.borderColor = "black";
-  elInputTel.style.borderColor = "black";
-  elInputRelation.style.borderColor = "black"
+  borderColors();
 
 // Valuelarni abjectga yuklab arrayga push qilish
     contacts.push({
@@ -61,28 +55,15 @@ let addResuls = function() {
 
 
 
-    elNewLi.setAttribute("class", "border  border-primary p-4 rounded-3 d-flex flex-column mb-4  shadow  bg-body ")
-    elNewLi.innerHTML = `
-    <p>
-    <span class="d-inline-block w-25 text-primary fw-bold">Name:</span>
-    <span>${contacts[i].name}</span>
-  </p>
-  <p>
-    <span class="d-inline-block w-25 text-primary fw-bold">Surname:</span>
-    <span>${contacts[i].surname}</span>
-  </p>
-  <p>
-    <span class="d-inline-block w-25 text-primary fw-bold">Relation:</span>
-    <span>${contacts[i].relation}</span>
-  </p>
-  <p>
-    <span class="d-inline-block w-25 text-primary fw-bold">Tel:</span>
-    <a class="" href="tel:${contacts[i].telephone}">${contacts[i].telephone}</a>
-  </p>`;
+    elNewLi.setAttribute("class", "border  border-primary p-4 rounded-3 d-flex flex-column mb-4  shadow  bg-body ");
 
+    let elContactName = createElement("p", "", contacts[i].name)
+    let elContactSurname = createElement("p", "", contacts[i].surname)
+    let elContactRelation = createElement("p", "", contacts[i].relation)
+    let elContactNumber = createElementA("a", contacts[i].telephone, contacts[i].telephone)
+
+    elNewLi.append(elContactName, elContactSurname, elContactRelation, elContactNumber)
     elAddedContact.append(elNewLi);
-    console.log(contacts[i]);
-
   }
 }
 
@@ -91,21 +72,7 @@ let addResuls = function() {
   evt.preventDefault();
   addValueAddarray();
 
-
   elAddedContact.innerHTML = ""
-  addResuls();
-  
-    elInputName.value = null
-    elInputSurname.value =null
-    elInputTel.value = null
+  addResuls();  
+  clearList();
 })
-
-
-
-
-
-
-
-
-
-
