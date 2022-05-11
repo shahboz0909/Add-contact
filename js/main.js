@@ -26,14 +26,14 @@ let contacts = [];
   
   if (name == "" || name.length < 3 || name.length > 20  ) {
     elInputName.style.borderColor = "red";
-    return
+    return;
   }
   if (telephone.length < 9 ) {
-    elInputTel.style.borderColor = "red"
-    return
+    elInputTel.style.borderColor = "red";
+    return;
   }
   if ( surname.length < 3 || surname.length > 20) {
-    return
+    return;
   }
 
   elInputName.style.borderColor = "black";
