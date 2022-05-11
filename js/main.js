@@ -46,25 +46,22 @@ borderColors();
 }
 
 let addResuls = function() {
-    for (let i = 0; i < contacts.length; i++){
-    
+
+  contacts.forEach(function(contactts) 
+  {
     let elNewLi = document.createElement("li");
-
     elNewLi.classList.add('list__item');
-    
-
-
-
     elNewLi.setAttribute("class", "border  border-primary p-4 rounded-3 d-flex flex-column mb-4  shadow  bg-body ");
+    
+        let elContactName = createElement("p", "", contactts.name)
+        let elContactSurname = createElement("p", "", contactts.surname)
+        let elContactRelation = createElement("p", "", contactts.relation)
+        let elContactNumber = createElementA("a", contactts.telephone, contactts.telephone)
+        
+        elNewLi.append(elContactName, elContactSurname, elContactRelation, elContactNumber)
+        elAddedContact.append(elNewLi);
 
-    let elContactName = createElement("p", "", contacts[i].name)
-    let elContactSurname = createElement("p", "", contacts[i].surname)
-    let elContactRelation = createElement("p", "", contacts[i].relation)
-    let elContactNumber = createElementA("a", contacts[i].telephone, contacts[i].telephone)
-
-    elNewLi.append(elContactName, elContactSurname, elContactRelation, elContactNumber)
-    elAddedContact.append(elNewLi);
-  }
+  })
 }
 
 // Formni hodisasini tinglash
