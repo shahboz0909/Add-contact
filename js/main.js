@@ -23,6 +23,24 @@ let contacts = [];
   let relation = elInputRelation.value.trim();
   let telephone = elInputTel.value.trim();
 
+  
+  if (name == "" || name.length < 3 || name.length > 20  ) {
+    elInputName.style.borderColor = "red";
+    return
+  }
+  if (telephone.length < 9 ) {
+    elInputTel.style.borderColor = "red"
+    return
+  }
+  if ( surname.length < 3 || surname.length > 20) {
+    return
+  }
+
+  elInputName.style.borderColor = "black";
+  elInputTel.style.borderColor = "black";
+  elInputSurname.style.borderColor = "black";
+  elInputTel.style.borderColor = "black";
+  elInputRelation.style.borderColor = "black"
 
 // Valuelarni abjectga yuklab arrayga push qilish
     contacts.push({
@@ -60,9 +78,9 @@ let addResuls = function() {
   <p>
     <span class="d-inline-block w-25 text-primary fw-bold">Tel:</span>
     <a class="" href="tel:${contacts[i].telephone}">${contacts[i].telephone}</a>
-  </p>`
+  </p>`;
 
-    elAddedContact.append(elNewLi)
+    elAddedContact.append(elNewLi);
     console.log(contacts[i]);
 
   }
